@@ -19,7 +19,22 @@ def get(name):
 
     Returns the snippet.
     """
-    logging.error("FIXMEL Unimplemented - get({!r})".format(name))
+    logging.error("FIXME: Unimplemented - get({!r})".format(name))
     return ""
 
+def update(name):
+    """ Update the snippet with a given name.
+
+    Returns the updated snippet.
+    """
+    logging.error("FIXEME: Unimplemented - update({!r})".format(name))
+    return ""
+
+def delete(name):
+    """ Delete the snippet with a given name.
+
+    Returns deleted snippet name.
+    """
+    logging.error("FIXME: Unimplemented - delete({!r})".format(name))
+    return name
 
