@@ -23,13 +23,13 @@ def get(name):
     logging.error("FIXME: Unimplemented - get({!r})".format(name))
     return ""
 
-def update(name):
+def update(name, snippet):
     """ Update the snippet with a given name.
 
     Returns the updated snippet.
     """
     logging.error("FIXEME: Unimplemented - update({!r})".format(name))
-    return ""
+    return name, snippet
 
 def delete(name):
     """ Delete the snippet with a given name.
@@ -53,21 +53,40 @@ def main():
     put_parser.add_argument("snippet", help="Snippet text")
 
     arguments = parser.parse_args()
-
-
     # Subparser for the get command
     logging.debug("Constructing get subparser")
     get_parser = subparsers.add_parser("get", help="Get a snippet")
+    put_parser.add_argument("name", help="Name of the snippet")
 
+    arguments = parser.parse_args()
     # Subparser for the update command
     logging.debug("Constructing update subparser")
     get_parser = subparsers.add_parser("update", help="Update a snippet")
+    put_parser.add_argument("name", help="name of the snippet")
+    put_parser.add_argument("snippet", help="updated snippet text")
 
+    arguments = parser.parse_args()
     # Subparser for the delete command
     logging.debug("Constructing delete subparser")
     get_parser = subparsers.add_parser("delete", help="Delete a snippet")
+    put_parser.add_argument("name", help="Name of the snippet")
 
     arguments = parser.parse_args()
+    arguments = vars(arguments)
+    command = arguments.pop("command")
+
+    if command == "put":
+        name, snippet = put(**arguments)
+        print("Stored {!r} as {!r}".format(snippet, name))
+    elif command == "get":
+        snippet = get(**arguments)
+        print("Retrieved snippet: {!r}".format(snippet))
+    elif command == "update":
+        snippet = update(**arguments)
+        print("Updated {!r} with {!r}".format(name, snippet))
+    elif command == "delete":
+        snippet = delete(**arguments)
+        print("Deleted {!r}".format(snippet))
 
 if __name__ == "__main__":
     main()

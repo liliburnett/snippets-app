@@ -19,3 +19,28 @@ DEBUG:root:Constructing update subparser
 DEBUG:root:Constructing delete subparser
 INFO:root:Constructing Parser
 DEBUG:root:Constructing put subparser
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing update subparser
+DEBUG:root:Constructing delete subparser
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing update subparser
+DEBUG:root:Constructing delete subparser
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing update subparser
+DEBUG:root:Constructing delete subparser
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing update subparser
+DEBUG:root:Constructing delete subparser
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing get subparser
