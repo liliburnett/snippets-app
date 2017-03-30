@@ -13,10 +13,12 @@ def put(name, snippet):
     """Store a snippet with an associated name."""
     logging.error("FIXME: Unimplemented - put({!r}, {!r})".format(name, snippet))
 
-    cursor = connection.cursor()
-    command = "insert into snippets values (%s, %s)"
-    cursor.execute(command, (name, snippet))
-    connection.commit()
+    with connection, connection.cursor() as cursor:
+        try:
+            cursor.execute("update snippets set message=%s where keyword=%s", (snippet, name))
+        except psycopg2.IntegrityError as e:
+            cursor.execute(command, (snippet, name))
+
     logging.debug("Snippet stored successfully.")
     return name, snippet
 
@@ -24,34 +26,23 @@ def get(name):
     """ Retrieve the snippet with a given name."""
     logging.error("FIXME: Unimplemented - get({!r})".format(name))
 
-    cursor = connection.cursor()
-    command = "select * from snippets where keyword=%s"
-    cursor.execute(command, (name,))
-    snippet = cursor.fetchone()
-    connection.commit()
+    with connection, connection.cursor() as cursor:
+        cursor.execute("select message from snippets where keyword=%s", (name,))
+        snippet = cursor.fetchone()
     logging.debug("Snippet retrieved.")
+    if not snippet:
+        return "404: Snippet not found"
     return snippet
 
-def update(snippet, name):
-    """ Update the snippet with a given name."""
-
-    logging.error("FIXEME: Unimplemented - update({!r})".format(name))
-    cursor = connection.cursor()
-    command = "update snippets set message=%s where keyword=%s"
-    cursor.execute(command, (snippet, name))
-    connection.commit()
-    logging.debug("Snippet updated successfully.")
-    return snippet, name
 
 def delete(name):
     """ Delete the snippet with a given name."""
 
     logging.error("FIXME: Unimplemented - delete({!r})".format(name))
 
-    cursor = connection.cursor()
-    command = "delete from snippets where keyword=%s"
-    cursor.execute(command, (name,))
-    connection.commit()
+    with connection, connection.cursor() as cursor:
+        cursor.execute("delete from snippets where keyword=%s", (name,))
+
     logging.debug("Snippet successfully deleted.")
     return name
 
@@ -73,12 +64,6 @@ def main():
     get_parser = subparsers.add_parser("get", help="Get a snippet")
     get_parser.add_argument("name", help="Name of the snippet")
 
-    # Subparser for the update command
-    logging.debug("Constructing update subparser")
-    update_parser = subparsers.add_parser("update", help="Update a snippet")
-    update_parser.add_argument("snippet", help="updated snippet text")
-    update_parser.add_argument("name", help="name of snippet")
-
     # Subparser for the delete command
     logging.debug("Constructing delete subparser")
     delete_parser = subparsers.add_parser("delete", help="Delete a snippet")
@@ -94,9 +79,6 @@ def main():
     elif command == "get":
         snippet = get(name=arguments["name"])
         print("Retrieved snippet: {!r}".format(snippet))
-    elif command == "update":
-        snippet, name = update(snippet=arguments["snippet"], name=arguments["name"])
-        print("Updated {!r} with {!r}".format(snippet, name))
     elif command == "delete":
         name = delete(name=arguments["name"])
         print("Deleted {!r}".format(name))
