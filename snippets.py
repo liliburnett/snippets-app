@@ -52,34 +52,31 @@ def main():
     put_parser.add_argument("name", help="Name of the snippet")
     put_parser.add_argument("snippet", help="Snippet text")
 
-    arguments = parser.parse_args()
     # Subparser for the get command
     logging.debug("Constructing get subparser")
     get_parser = subparsers.add_parser("get", help="Get a snippet")
-    put_parser.add_argument("name", help="Name of the snippet")
+    get_parser.add_argument("name", help="Name of the snippet")
 
-    arguments = parser.parse_args()
-    # Subparser for the update command
+     Subparser for the update command
     logging.debug("Constructing update subparser")
-    get_parser = subparsers.add_parser("update", help="Update a snippet")
-    put_parser.add_argument("name", help="name of the snippet")
-    put_parser.add_argument("snippet", help="updated snippet text")
+    update_parser = subparsers.add_parser("update", help="Update a snippet")
+    update_parser.add_argument("name", help="name of the snippet")
+    update_parser.add_argument("snippet", help="updated snippet text")
 
-    arguments = parser.parse_args()
     # Subparser for the delete command
     logging.debug("Constructing delete subparser")
-    get_parser = subparsers.add_parser("delete", help="Delete a snippet")
-    put_parser.add_argument("name", help="Name of the snippet")
+    delete_parser = subparsers.add_parser("delete", help="Delete a snippet")
+    delete_parser.add_argument("name", help="Name of the snippet")
 
     arguments = parser.parse_args()
     arguments = vars(arguments)
     command = arguments.pop("command")
 
     if command == "put":
-        name, snippet = put(**arguments)
+        name, snippet = put(name=arguments["name"], snippet=arguments["snippet"])
         print("Stored {!r} as {!r}".format(snippet, name))
     elif command == "get":
-        snippet = get(**arguments)
+        snippet = get(name=arguments["name"])
         print("Retrieved snippet: {!r}".format(snippet))
     elif command == "update":
         snippet = update(**arguments)
