@@ -372,3 +372,97 @@ DEBUG:root:Constructing get subparser
 DEBUG:root:Constructing delete subparser
 ERROR:root:FIXME: Unimplemented - delete('Test')
 DEBUG:root:Snippet successfully deleted.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+ERROR:root:FIXME: Unimplemented - put('Test', 'testing test search')
+DEBUG:root:Snippet stored successfully.
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser
+DEBUG:root:Connecting to PostgreSQL
+DEBUG:root:Database connection established.
+INFO:root:Constructing Parser
+DEBUG:root:Constructing put subparser
+DEBUG:root:Constructing search subparser
+DEBUG:root:Constructing get subparser
+DEBUG:root:Constructing delete subparser

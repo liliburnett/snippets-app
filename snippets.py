@@ -22,6 +22,16 @@ def put(name, snippet):
     logging.debug("Snippet stored successfully.")
     return name, snippet
 
+def search(text):
+    """ Searches for a snippet with given text """
+    with connection, connection.cursor() as cursor:
+        cursor.execute("select * from snippets where message like %s", (text,))
+        snippet = cursor.fetchall()
+        print(snippet)
+    if not snippet:
+        return "404: Snippet not found."
+    return snippet
+
 def get(name):
     """ Retrieve the snippet with a given name."""
     logging.error("FIXME: Unimplemented - get({!r})".format(name))
@@ -59,6 +69,11 @@ def main():
     put_parser.add_argument("name", help="Name of the snippet")
     put_parser.add_argument("snippet", help="Snippet text")
 
+    # Subparser for the search command
+    logging.debug("Constructing search subparser")
+    search_parser = subparsers.add_parser("search", help="Search for a snippet containing text")
+    search_parser.add_argument("text", help="Text to search for")
+
     # Subparser for the get command
     logging.debug("Constructing get subparser")
     get_parser = subparsers.add_parser("get", help="Get a snippet")
@@ -72,10 +87,13 @@ def main():
     arguments = parser.parse_args()
     arguments = vars(arguments)
     command = arguments.pop("command")
-    print(arguments["name"])
+
     if command == "put":
         name, snippet = put(name=arguments["name"], snippet=arguments["snippet"])
         print("Stored {!r} as {!r}".format(snippet, name))
+    elif command == "search":
+        snippet = search(text=arguments["text"])
+        print("Retrieved snippet with matching text: {!r}".format(snippet))
     elif command == "get":
         snippet = get(name=arguments["name"])
         print("Retrieved snippet: {!r}".format(snippet))
